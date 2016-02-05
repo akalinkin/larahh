@@ -30,7 +30,7 @@
         </div>
         <div class="panel-body">
             <form action="#" method="POST" v-on:submit.prevent="createUrl">
-                <div class="form-group">
+                <div class="form-group" v-if="greeting">
                     <label for="url">Long URL</label>
                     <input type="text" class="form-control" id="url" placeholder="Long URL" v-model="link.url">
                 </div>
@@ -42,8 +42,6 @@
             </form>
         </div>
     </div>
-
-
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -73,7 +71,8 @@
             link: {
                 url: '',
                 alt: '',
-            },
+                error: ''
+            }
         },
 
         methods: {
@@ -82,8 +81,12 @@
 
                 this.$http.post('/u', link).then(function (response) {
                     this.link.alt = response.data.url;
+                    this.link.error = response.data.error;
+
+                    console.log(response.data.error);
                     console.log(response.data.url);
                 }, function (response) {
+                    this.link.error = response.data.error;
                     console.log(response);
                 });
             }

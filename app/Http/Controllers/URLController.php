@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\URL;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class URLController extends Controller
 {
@@ -18,8 +19,26 @@ class URLController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function create(Request $request) {
         $url = $request->get('url');
+
+        $validator = Validator::make($request->all(), [
+            'url' => 'url',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode([
+                'error' => 'NOPE',
+            ]);
+        }
+
+//        $this->validate($request, [
+//            'url' => 'url',
+//        ]);
 
         $short = new URL();
 
