@@ -50,7 +50,7 @@
             <h3 class="panel-title">API</h3>
         </div>
         <div class="panel-body">
-            To use our URL-Shortener from your application, you simply need to to a POST-Request to the API:
+            To use our URL-Shortener from your application, you simply need to make a POST-Request to the API:
 
             <pre>curl -X "POST" "https://larahh.xyz/u?url=<kbd>URL</kbd>"</pre>
 
