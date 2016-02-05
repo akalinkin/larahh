@@ -25,7 +25,7 @@ class URLController extends Controller
 
         $short->create([
             'url' => $url,
-            'short' => $alt,
+            'alt' => $alt,
         ]);
 
         return json_encode($alt);
