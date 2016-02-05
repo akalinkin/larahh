@@ -1,7 +1,7 @@
 <?php
 
 $app->get('/', function () use ($app) {
-    return redirect('https://laravel-hamburg.com');
+    return view('home');
 });
 
 $app->get('u/{url}', 'URLController@redirect');
