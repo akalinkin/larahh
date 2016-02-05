@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\URL;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Validator;
 
 class URLController extends Controller
 {
@@ -25,14 +25,14 @@ class URLController extends Controller
     public function create(Request $request) {
         $url = $request->get('url');
 
-        $validator = Validator::make($request->all(), [
+        $fails = $this->validate($request, [
             'url' => 'active_url|unique:urls|required',
         ]);
 
-        if ($validator->fails()) {
-            return json_encode([
-                'error' => 'There was a problem with your input. Maybe this URL is already used..',
-            ]);
+        if ($fails) {
+            return response()->json([
+                'errors' => $fails,
+            ], 422);
         }
 
         $short = new URL();
@@ -46,9 +46,9 @@ class URLController extends Controller
             'count_alt' => $count_alt
         ]);
 
-        return json_encode([
+        return response()->json([
             'url' => 'https://larahh.xyz/u/'.$alt,
             'counter' => 'https://larahh.xyz/c/'.$count_alt,
-        ]);
+        ], 200);
     }
 }

@@ -24,7 +24,13 @@
         <h1>Laravel Hamburg URL Shortener</h1>
     </div>
 
-    <div class="alert alert-danger" role="alert" v-if="link.error">@{{ link.error }}</div>
+    <div class="alert alert-danger" v-if="link.error">
+        <ul v-for="error in link.error">
+            <li v-for="e in error">
+                @{{ e }}
+            </li>
+        </ul>
+    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -86,13 +92,11 @@
                 this.$http.post('/u', link).then(function (response) {
                     link.alt = response.data.url;
                     link.counter = response.data.counter;
-                    link.error = response.data.error;
 
-                    console.log(response.data.error);
                     console.log(response.data.url);
                 }, function (response) {
-                    link.error = response.data.error;
-                    console.log(response);
+                    console.log(response.data.url)
+                    link.error = response.data;
                 });
             }
         }
