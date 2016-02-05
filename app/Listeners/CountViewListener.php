@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\ExampleEvent;
+use App\Events\Event;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ExampleListener
+class CountViewListener
 {
     /**
      * Create the event listener.
@@ -21,11 +21,13 @@ class ExampleListener
     /**
      * Handle the event.
      *
-     * @param  ExampleEvent  $event
+     * @param  Event  $event
      * @return void
      */
-    public function handle(ExampleEvent $event)
+    public function handle(Event $event)
     {
-        //
+
     }
+
+
 }

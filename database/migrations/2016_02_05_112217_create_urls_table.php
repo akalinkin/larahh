@@ -18,6 +18,8 @@ class CreateUrlsTable extends Migration
 
             $table->string('url');
             $table->string('alt')->unique();
+            $table->string('count_alt')->unique();
+            $table->integer('view_count')->default(0);
 
             $table->timestamps();
         });

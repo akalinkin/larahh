@@ -6,3 +6,5 @@ $app->get('/', function () use ($app) {
 
 $app->get('u/{url}', 'URLController@redirect');
 $app->post('u', 'URLController@create');
+
+$app->get('c/{url}', 'CountController@view');

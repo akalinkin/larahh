@@ -39,6 +39,7 @@
                 <div class="form-group">
                     <label for="alt">Short URL</label>
                     <input type="text" class="form-control" id="alt" placeholder="Short URL" value="@{{ link.alt }}" readonly>
+                    <span id="count_alt" class="help-block" v-if="link.counter">Your counter is available on <a href="@{{ link.counter }}">@{{ link.counter }}</a></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Shorten!</button>
             </form>
@@ -73,6 +74,7 @@
             link: {
                 url: '',
                 alt: '',
+                counter: '',
                 error: ''
             }
         },
@@ -82,13 +84,14 @@
                 var link = this.link;
 
                 this.$http.post('/u', link).then(function (response) {
-                    this.link.alt = response.data.url;
-                    this.link.error = response.data.error;
+                    link.alt = response.data.url;
+                    link.counter = response.data.counter;
+                    link.error = response.data.error;
 
                     console.log(response.data.error);
                     console.log(response.data.url);
                 }, function (response) {
-                    this.link.error = response.data.error;
+                    link.error = response.data.error;
                     console.log(response);
                 });
             }

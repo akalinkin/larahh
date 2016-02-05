@@ -16,7 +16,7 @@ class URL extends Model
      * @var array
      */
     protected $fillable = [
-        'url', 'alt',
+        'url', 'alt', 'count_alt', 'view_count'
     ];
 
     /**

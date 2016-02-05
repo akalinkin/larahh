@@ -11,10 +11,12 @@ class URLController extends Controller
     public function redirect($url) {
         try {
             $link = URL::where('alt', $url)->first();
+            $link->increment('view_count');
             return redirect($link->url);
         } catch (\Exception $e) {
             return json_encode([
-                'error' => 'URL not found.'
+                'error' => 'URL not found.',
+                'message' => $e->getMessage()
             ]);
         }
     }
@@ -28,21 +30,24 @@ class URLController extends Controller
 
         if ($validator->fails()) {
             return json_encode([
-                'error' => 'There was a problem with your input.',
+                'error' => 'There was a problem with your input. Maybe this URL is already used..',
             ]);
         }
 
         $short = new URL();
 
         $alt = str_random(7);
+        $count_alt = str_random(7);
 
         $short->create([
             'url' => $url,
             'alt' => $alt,
+            'count_alt' => $count_alt
         ]);
 
         return json_encode([
             'url' => 'https://larahh.xyz/u/'.$alt,
+            'counter' => 'https://larahh.xyz/c/'.$count_alt,
         ]);
     }
 }
