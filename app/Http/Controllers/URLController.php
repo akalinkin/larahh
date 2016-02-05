@@ -23,10 +23,10 @@ class URLController extends Controller
 
         $alt = str_random(7);
 
-//        $short->create([
-//            'url' => $url,
-//            'short' => $alt,
-//        ]);
+        $short->create([
+            'url' => $url,
+            'short' => $alt,
+        ]);
 
         return json_encode($alt);
     }
