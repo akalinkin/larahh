@@ -10,7 +10,7 @@ class URLController extends Controller
     public function redirect($url) {
         try {
             $link = URL::where('alt', $url)->first();
-            return redirect($link->alt);
+            return redirect($link->url);
         } catch (\Exception $e) {
             return json_encode('URL not found.');
         }
@@ -28,6 +28,6 @@ class URLController extends Controller
             'alt' => $alt,
         ]);
 
-        return json_encode($alt);
+        return json_encode('https://larahh.xyz/u/'.$alt);
     }
 }
