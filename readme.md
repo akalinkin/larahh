@@ -4,7 +4,7 @@
 
 To use our URL-Shortener from your application, you simply need to to a POST-Request to the API:
 
-```curl -X "POST" "https://larahh.xyz/u?url=URL```
+```curl -X "POST" "https://larahh.xyz/u?url=URL"```
 
 
 The respsonse will be something like:
