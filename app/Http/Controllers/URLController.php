@@ -12,6 +12,7 @@ class URLController extends Controller
         try {
             $link = URL::where('alt', $url)->first();
             $link->increment('view_count');
+
             return redirect($link->url);
         } catch (\Exception $e) {
             return json_encode([
