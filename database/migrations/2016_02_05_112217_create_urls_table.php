@@ -17,7 +17,7 @@ class CreateUrlsTable extends Migration
             $table->increments('id');
 
             $table->string('url');
-            $table->string('alt');
+            $table->string('alt')->unique();
 
             $table->timestamps();
         });
