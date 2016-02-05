@@ -9,7 +9,7 @@ class URLController extends Controller
 {
     public function redirect($url) {
         try {
-            $link = URL::where('url', $url)->first();
+            $link = URL::where('alt', $url)->first();
             return redirect($link->alt);
         } catch (\Exception $e) {
             return json_encode('URL not found.');
