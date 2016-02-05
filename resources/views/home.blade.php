@@ -74,9 +74,6 @@
                 url: '',
                 alt: '',
             },
-
-            submitted: false,
-            deleted: false
         },
 
         methods: {
@@ -84,7 +81,6 @@
                 var link = this.link;
 
                 this.$http.post('/u', link).then(function (response) {
-                    this.submitted = true;
                     this.link.alt = response.data.url;
                     console.log(response.data.url);
                 }, function (response) {
