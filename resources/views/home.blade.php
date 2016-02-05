@@ -24,13 +24,15 @@
         <h1>Laravel Hamburg URL Shortener</h1>
     </div>
 
+    <div class="alert alert-danger" role="alert" v-if="link.error">@{{ link.error }}</div>
+    
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">URL Shortener</h3>
         </div>
         <div class="panel-body">
             <form action="#" method="POST" v-on:submit.prevent="createUrl">
-                <div class="form-group" v-if="greeting">
+                <div class="form-group">
                     <label for="url">Long URL</label>
                     <input type="text" class="form-control" id="url" placeholder="Long URL" v-model="link.url">
                 </div>

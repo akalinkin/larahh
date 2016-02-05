@@ -27,12 +27,12 @@ class URLController extends Controller
         $url = $request->get('url');
 
         $validator = Validator::make($request->all(), [
-            'url' => 'url',
+            'url' => 'url|required',
         ]);
 
         if ($validator->fails()) {
             return json_encode([
-                'error' => 'NOPE',
+                'error' => 'There was a problem with your input.',
             ]);
         }
 
