@@ -19,10 +19,6 @@ class URLController extends Controller
         }
     }
 
-    /**
-     * @param Request $request
-     * @return string
-     */
     public function create(Request $request) {
         $url = $request->get('url');
 
