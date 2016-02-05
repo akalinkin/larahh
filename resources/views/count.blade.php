@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Counter for: {{ $counter->url }} - Laravel-Hamburg</title>
+    <title>Counter for: {{ $counter->alt }} - Laravel-Hamburg</title>
 
     <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
 
