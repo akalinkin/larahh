@@ -27,7 +27,7 @@ class URLController extends Controller
         $url = $request->get('url');
 
         $validator = Validator::make($request->all(), [
-            'url' => 'url|required',
+            'url' => 'active_url|unique:urls|required',
         ]);
 
         if ($validator->fails()) {
@@ -35,10 +35,6 @@ class URLController extends Controller
                 'error' => 'There was a problem with your input.',
             ]);
         }
-
-//        $this->validate($request, [
-//            'url' => 'url',
-//        ]);
 
         $short = new URL();
 

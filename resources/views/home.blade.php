@@ -25,7 +25,7 @@
     </div>
 
     <div class="alert alert-danger" role="alert" v-if="link.error">@{{ link.error }}</div>
-    
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">URL Shortener</h3>
