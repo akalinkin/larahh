@@ -1,0 +1,69 @@
+{
+    "File": {
+        "ID": "957512d3-c9f7-fe42-bfbe-535651146c5f",
+        "Path": "/Users/fwartner/Development/Laravel/larahh/Appfile",
+        "Source": "",
+        "Application": {
+            "Name": "larahh",
+            "Type": "php",
+            "Detect": true,
+            "Dependencies": null
+        },
+        "Project": {
+            "Name": "larahh",
+            "Infrastructure": "larahh"
+        },
+        "Infrastructure": [
+            {
+                "Name": "larahh",
+                "Type": "aws",
+                "Flavor": "simple",
+                "Foundations": [
+                    {
+                        "Name": "consul",
+                        "Config": null
+                    }
+                ]
+            }
+        ],
+        "Customization": null,
+        "Imports": null
+    },
+    "Vertices": [
+        {
+            "File": {
+                "ID": "957512d3-c9f7-fe42-bfbe-535651146c5f",
+                "Path": "/Users/fwartner/Development/Laravel/larahh/Appfile",
+                "Source": "",
+                "Application": {
+                    "Name": "larahh",
+                    "Type": "php",
+                    "Detect": true,
+                    "Dependencies": null
+                },
+                "Project": {
+                    "Name": "larahh",
+                    "Infrastructure": "larahh"
+                },
+                "Infrastructure": [
+                    {
+                        "Name": "larahh",
+                        "Type": "aws",
+                        "Flavor": "simple",
+                        "Foundations": [
+                            {
+                                "Name": "consul",
+                                "Config": null
+                            }
+                        ]
+                    }
+                ],
+                "Customization": null,
+                "Imports": null
+            },
+            "Dir": "",
+            "NameValue": "larahh"
+        }
+    ],
+    "Edges": []
+}
