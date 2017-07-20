@@ -47,8 +47,8 @@ class URLController extends Controller
         ]);
 
         return response()->json([
-            'url' => 'https://larahh.xyz/u/'.$alt,
-            'counter' => 'https://larahh.xyz/c/'.$count_alt,
+            'url' => env('APP_URL','http://shortify.local').'/u/'.$alt,
+            'counter' => env('APP_URL','http://shortify.local').'/c/'.$count_alt,
         ], 200);
     }
 }

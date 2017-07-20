@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>URL Shortener - Laravel-Hamburg</title>
+    <title>Shortify service</title>
 
     <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
 
@@ -15,13 +15,9 @@
     <![endif]-->
 </head>
 <body>
-<a href="https://github.com/LaravelHamburg/larahh">
-    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-</a>
-
 <div class="container" id="app">
     <div class="page-header">
-        <h1>Laravel Hamburg URL Shortener</h1>
+        <h1>URL Shortify service</h1>
     </div>
 
     <div class="alert alert-danger" v-if="link.error">
@@ -59,11 +55,11 @@
         <div class="panel-body">
             To use our URL-Shortener from your application, you simply need to make a POST-Request to the API:
 
-            <pre>curl -X "POST" "https://larahh.xyz/u?url=<kbd>URL</kbd>"</pre>
+            <pre>curl -X "POST" "{{ env('APP_URL','http://shortify.local') }}/u?url=<kbd>URL</kbd>"</pre>
 
             The respsonse will be something like:
             <pre>{
-  "url": "https://larahh.xyz/u/Pmn60SE"
+  "url": "{{ env('APP_URL','http://shortify.local') }}/u/Pmn60SE"
 }</pre>
         </div>
     </div>
@@ -102,17 +98,6 @@
         }
 
     })
-</script>
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', '{!! env('GA_ID') !!}', 'auto');
-    ga('send', 'pageview');
-
 </script>
 
 </body>
