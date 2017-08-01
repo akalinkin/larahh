@@ -46,9 +46,12 @@ class URLController extends Controller
             'count_alt' => $count_alt
         ]);
 
+        $appBaseUrl = env('APP_URL','http://shortify.local');
+        $appBaseUrl = rtrim($appBaseUrl, '/'); // remove last '/' if exists
+
         return response()->json([
-            'url' => env('APP_URL','http://shortify.local').'/u/'.$alt,
-            'counter' => env('APP_URL','http://shortify.local').'/c/'.$count_alt,
+            'url' => $appBaseUrl.'/u/'.$alt,
+            'counter' => $appBaseUrl.'/c/'.$count_alt,
         ], 200);
     }
 }
