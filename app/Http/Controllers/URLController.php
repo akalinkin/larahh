@@ -11,6 +11,13 @@ class URLController extends Controller
     public function redirect($url) {
         try {
             $link = URL::where('alt', $url)->first();
+
+            if (!$link) {
+              return response()->json([
+                  'error' => 'Specified URL was not found:' . $url
+              ], 404);
+            }
+
             $link->increment('view_count');
 
             return redirect($link->url);
